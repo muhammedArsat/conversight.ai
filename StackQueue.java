@@ -1,13 +1,13 @@
 import java.util.*;
-class Stack{
+class Stack<T>{
 
-    List<Integer> arrayList;
+    List<T> arrayList;
 
     Stack(){
         arrayList = new ArrayList<>();
     }
 
-    void push(int val){
+    void push(T val){
         arrayList.add(val);
     };
 
@@ -18,7 +18,7 @@ class Stack{
             return;
         }
 
-        int lastElement = arrayList.get(arrayList.size()-1);
+        T lastElement = arrayList.get(arrayList.size()-1);
         arrayList.removeLast();
         System.out.println(lastElement);
     }
@@ -29,9 +29,9 @@ class Stack{
     }
 
 
-    int top (){
+    T top (){
         if(arrayList.isEmpty()){
-            return -1;
+            return null;
         }
 
         return arrayList.getLast();
@@ -50,13 +50,12 @@ public class StackQueue {
 
 
     public static void main(String[] args) {
-        Stack stack = new Stack();
+        Stack<String> stack = new Stack<>();
 
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        stack.push(5);
+        stack.push("arsath");
+        stack.push("Hamsa");
+        stack.push("same");
+
         System.out.println("Top of the stack : " + stack.top());
         stack.pop();
         stack.pop();
@@ -64,7 +63,7 @@ public class StackQueue {
         stack.pop();
         stack.pop();
 
-        System.out.println(stack.isEmpty());
+        System.out.println(stack.isEmpty()); 
 
 
     }
